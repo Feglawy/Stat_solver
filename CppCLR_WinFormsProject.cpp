@@ -17,10 +17,9 @@ using namespace System::Runtime::InteropServices;
 using namespace System::Windows::Forms;
 
 [STAThread]
-int main()
-{
-  Application::EnableVisualStyles();
-  Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew CppCLRWinFormsProject::Form1());
-  return 0;
+int main() {
+	  Application::EnableVisualStyles();
+	  Application::SetCompatibleTextRenderingDefault(false);
+	  Application::Run(gcnew CppCLRWinFormsProject::Form1());
+	  return 0;
 }

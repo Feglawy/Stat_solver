@@ -96,6 +96,7 @@ namespace CppCLRWinFormsProject {
 
 
 
+
 	protected:
 
 	private:
@@ -174,8 +175,9 @@ namespace CppCLRWinFormsProject {
 			this->textBox1->Location = System::Drawing::Point(34, 105);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(572, 81);
+			this->textBox1->Size = System::Drawing::Size(575, 81);
 			this->textBox1->TabIndex = 1;
+			this->textBox1->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Form1::textBox1_KeyDown);
 			// 
 			// button1
 			// 
@@ -631,7 +633,7 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1225, 695);
+			this->ClientSize = System::Drawing::Size(1224, 679);
 			this->Controls->Add(this->ModeBox);
 			this->Controls->Add(this->SortedBox);
 			this->Controls->Add(this->Q3Box);
@@ -783,7 +785,7 @@ namespace CppCLRWinFormsProject {
 			if (
 				MessageBox::Show(
 				"Do you want to exit ? ", "Exit prompt!",
-				MessageBoxButtons::YesNo, MessageBoxIcon::Warning) == System::Windows::Forms::DialogResult::Yes
+				MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes
 				) {
 				Application::Exit();
 			}
@@ -809,6 +811,12 @@ namespace CppCLRWinFormsProject {
 			dragging = true;
 			offset.X = e->X;
 			offset.Y = e->Y;
+		}
+		
+		System::Void textBox1_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+			if (e->KeyValue == (int)Keys::Enter) {
+				button1->PerformClick();
+			}
 		}
 	};
 }
