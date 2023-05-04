@@ -64,7 +64,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ UB;
 	private: System::Windows::Forms::Label^ Skewed;
 	private: System::Windows::Forms::Panel^ panel4;
-	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ Exit_Button;
+
 	private: System::Windows::Forms::TextBox^ SumBox;
 	private: System::Windows::Forms::TextBox^ RangeBox;
 	private: System::Windows::Forms::TextBox^ MeanBox;
@@ -136,7 +137,7 @@ namespace CppCLRWinFormsProject {
 			this->UB = (gcnew System::Windows::Forms::Label());
 			this->Skewed = (gcnew System::Windows::Forms::Label());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->Exit_Button = (gcnew System::Windows::Forms::Button());
 			this->SumBox = (gcnew System::Windows::Forms::TextBox());
 			this->RangeBox = (gcnew System::Windows::Forms::TextBox());
 			this->MeanBox = (gcnew System::Windows::Forms::TextBox());
@@ -404,19 +405,19 @@ namespace CppCLRWinFormsProject {
 			this->panel4->Size = System::Drawing::Size(572, 2);
 			this->panel4->TabIndex = 22;
 			// 
-			// button2
+			// Exit_Button
 			// 
-			this->button2->FlatAppearance->BorderColor = System::Drawing::Color::Blue;
-			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Exit_Button->FlatAppearance->BorderColor = System::Drawing::Color::Blue;
+			this->Exit_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Exit_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(1006, 105);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(143, 89);
-			this->button2->TabIndex = 23;
-			this->button2->Text = L"Quit";
-			this->button2->UseVisualStyleBackColor = false;
-			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
+			this->Exit_Button->Location = System::Drawing::Point(1006, 105);
+			this->Exit_Button->Name = L"Exit_Button";
+			this->Exit_Button->Size = System::Drawing::Size(143, 89);
+			this->Exit_Button->TabIndex = 23;
+			this->Exit_Button->Text = L"Quit";
+			this->Exit_Button->UseVisualStyleBackColor = false;
+			this->Exit_Button->Click += gcnew System::EventHandler(this, &Form1::Exit_Button_Click);
 			// 
 			// SumBox
 			// 
@@ -649,7 +650,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->MeanBox);
 			this->Controls->Add(this->RangeBox);
 			this->Controls->Add(this->SumBox);
-			this->Controls->Add(this->button2);
+			this->Controls->Add(this->Exit_Button);
 			this->Controls->Add(this->Calc_Button);
 			this->Controls->Add(this->panel4);
 			this->Controls->Add(this->Skewed);
@@ -701,7 +702,16 @@ namespace CppCLRWinFormsProject {
 		}
 
 		System::Void Calc_Button_Click(System::Object^ sender, System::EventArgs^ e) {
-			if (textBox1->Text == "") {
+
+
+			string textbox = msclr::interop::marshal_as<std::string>(textBox1->Text);
+			textbox.erase(remove(textbox.begin(), textbox.end(), '\r'), textbox.end());
+			textbox.erase(remove(textbox.begin(), textbox.end(), '\n'), textbox.end());
+			//textbox string to check if the textbox is empty or not by
+			//eraseing newlines of the textbox
+			//it can be better 
+
+			if (textBox1->Text == "" || textbox == "") {
 				MessageBox::Show(
 					"You must input in the text box ", "ERROR",
 					MessageBoxButtons::OK, MessageBoxIcon::Error);
@@ -789,7 +799,7 @@ namespace CppCLRWinFormsProject {
 		}
 
 
-		System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		System::Void Exit_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 			if (
 				MessageBox::Show(
 				"Do you want to exit ? ", "Exit prompt!",
