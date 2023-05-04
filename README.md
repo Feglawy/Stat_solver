@@ -1,1 +1,1 @@
-# gui_stat
+# Stat solver for assignments
