@@ -74,6 +74,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ Q3Box;
 	private: System::Windows::Forms::TextBox^ SortedBox;
 	private: System::Windows::Forms::TextBox^ ModeBox;
+	private: System::Windows::Forms::Button^ Reset_textbox_Button;
 
 
 
@@ -130,28 +131,27 @@ namespace CppCLRWinFormsProject {
 			this->Q3Box = (gcnew System::Windows::Forms::TextBox());
 			this->SortedBox = (gcnew System::Windows::Forms::TextBox());
 			this->ModeBox = (gcnew System::Windows::Forms::TextBox());
+			this->Reset_textbox_Button = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(29, 53);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(57, 25);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Data";
-			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
+
 			// 
 			// textBox1
 			// 
 			this->textBox1->BackColor = System::Drawing::Color::Black;
 			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->textBox1->Cursor = System::Windows::Forms::Cursors::IBeam;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, 
-				System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->textBox1->ForeColor = System::Drawing::Color::White;
 			this->textBox1->Location = System::Drawing::Point(37, 105);
@@ -167,8 +167,7 @@ namespace CppCLRWinFormsProject {
 			this->Calc_Button->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->Calc_Button->FlatAppearance->BorderSize = 0;
 			this->Calc_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Calc_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Calc_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Calc_Button->Location = System::Drawing::Point(844, 105);
 			this->Calc_Button->Name = L"Calc_Button";
@@ -181,8 +180,7 @@ namespace CppCLRWinFormsProject {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 18, 
-				System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(31, 252);
 			this->label2->Name = L"label2";
@@ -201,8 +199,7 @@ namespace CppCLRWinFormsProject {
 			// Mean
 			// 
 			this->Mean->AutoSize = true;
-			this->Mean->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Mean->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Mean->Location = System::Drawing::Point(32, 486);
 			this->Mean->Name = L"Mean";
@@ -213,8 +210,7 @@ namespace CppCLRWinFormsProject {
 			// Median
 			// 
 			this->Median->AutoSize = true;
-			this->Median->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Median->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Median->Location = System::Drawing::Point(32, 528);
 			this->Median->Name = L"Median";
@@ -225,8 +221,7 @@ namespace CppCLRWinFormsProject {
 			// Sorted
 			// 
 			this->Sorted->AutoSize = true;
-			this->Sorted->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Sorted->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Sorted->Location = System::Drawing::Point(74, 304);
 			this->Sorted->Name = L"Sorted";
@@ -237,8 +232,7 @@ namespace CppCLRWinFormsProject {
 			// Sum
 			// 
 			this->Sum->AutoSize = true;
-			this->Sum->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Sum->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Sum->Location = System::Drawing::Point(32, 405);
 			this->Sum->Name = L"Sum";
@@ -249,8 +243,7 @@ namespace CppCLRWinFormsProject {
 			// Mode
 			// 
 			this->Mode->AutoSize = true;
-			this->Mode->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Mode->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Mode->Location = System::Drawing::Point(74, 345);
 			this->Mode->Name = L"Mode";
@@ -261,8 +254,7 @@ namespace CppCLRWinFormsProject {
 			// Range
 			// 
 			this->Range->AutoSize = true;
-			this->Range->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Range->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Range->Location = System::Drawing::Point(32, 444);
 			this->Range->Name = L"Range";
@@ -284,8 +276,7 @@ namespace CppCLRWinFormsProject {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F,
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->Location = System::Drawing::Point(839, 259);
 			this->label3->Name = L"label3";
@@ -304,8 +295,7 @@ namespace CppCLRWinFormsProject {
 			// Q1
 			// 
 			this->Q1->AutoSize = true;
-			this->Q1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Q1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Q1->Location = System::Drawing::Point(869, 344);
 			this->Q1->Name = L"Q1";
@@ -316,8 +306,7 @@ namespace CppCLRWinFormsProject {
 			// Q2
 			// 
 			this->Q2->AutoSize = true;
-			this->Q2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Q2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Q2->Location = System::Drawing::Point(869, 385);
 			this->Q2->Name = L"Q2";
@@ -328,8 +317,7 @@ namespace CppCLRWinFormsProject {
 			// Q3
 			// 
 			this->Q3->AutoSize = true;
-			this->Q3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Q3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Q3->Location = System::Drawing::Point(869, 423);
 			this->Q3->Name = L"Q3";
@@ -340,8 +328,7 @@ namespace CppCLRWinFormsProject {
 			// IQR
 			// 
 			this->IQR->AutoSize = true;
-			this->IQR->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->IQR->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IQR->Location = System::Drawing::Point(869, 461);
 			this->IQR->Name = L"IQR";
@@ -360,8 +347,7 @@ namespace CppCLRWinFormsProject {
 			// LB
 			// 
 			this->LB->AutoSize = true;
-			this->LB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->LB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->LB->Location = System::Drawing::Point(869, 495);
 			this->LB->Name = L"LB";
@@ -372,8 +358,7 @@ namespace CppCLRWinFormsProject {
 			// UB
 			// 
 			this->UB->AutoSize = true;
-			this->UB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->UB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->UB->Location = System::Drawing::Point(869, 530);
 			this->UB->Name = L"UB";
@@ -384,8 +369,7 @@ namespace CppCLRWinFormsProject {
 			// Skewed
 			// 
 			this->Skewed->AutoSize = true;
-			this->Skewed->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Skewed->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Skewed->Location = System::Drawing::Point(869, 572);
 			this->Skewed->Name = L"Skewed";
@@ -405,8 +389,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->Exit_Button->FlatAppearance->BorderColor = System::Drawing::Color::Blue;
 			this->Exit_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Exit_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Exit_Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Exit_Button->Location = System::Drawing::Point(1006, 105);
 			this->Exit_Button->Name = L"Exit_Button";
@@ -421,8 +404,7 @@ namespace CppCLRWinFormsProject {
 			this->SumBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->SumBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->SumBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->SumBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->SumBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->SumBox->ForeColor = System::Drawing::Color::White;
 			this->SumBox->Location = System::Drawing::Point(155, 405);
@@ -437,8 +419,7 @@ namespace CppCLRWinFormsProject {
 			this->RangeBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->RangeBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->RangeBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->RangeBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->RangeBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->RangeBox->ForeColor = System::Drawing::Color::White;
 			this->RangeBox->Location = System::Drawing::Point(155, 444);
@@ -453,8 +434,7 @@ namespace CppCLRWinFormsProject {
 			this->MeanBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->MeanBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->MeanBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->MeanBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->MeanBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MeanBox->ForeColor = System::Drawing::Color::White;
 			this->MeanBox->Location = System::Drawing::Point(155, 486);
@@ -469,8 +449,7 @@ namespace CppCLRWinFormsProject {
 			this->MeadianBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->MeadianBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->MeadianBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->MeadianBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->MeadianBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MeadianBox->ForeColor = System::Drawing::Color::White;
 			this->MeadianBox->Location = System::Drawing::Point(155, 528);
@@ -485,8 +464,7 @@ namespace CppCLRWinFormsProject {
 			this->STBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->STBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->STBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->STBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->STBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->STBox->ForeColor = System::Drawing::Color::White;
 			this->STBox->Location = System::Drawing::Point(254, 572);
@@ -501,8 +479,7 @@ namespace CppCLRWinFormsProject {
 			this->Q1Box->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->Q1Box->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->Q1Box->Cursor = System::Windows::Forms::Cursors::Default;
-			this->Q1Box->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Q1Box->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Q1Box->ForeColor = System::Drawing::Color::White;
 			this->Q1Box->Location = System::Drawing::Point(949, 344);
@@ -517,8 +494,7 @@ namespace CppCLRWinFormsProject {
 			this->Q2Box->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->Q2Box->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->Q2Box->Cursor = System::Windows::Forms::Cursors::Default;
-			this->Q2Box->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Q2Box->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Q2Box->ForeColor = System::Drawing::Color::White;
 			this->Q2Box->Location = System::Drawing::Point(949, 385);
@@ -533,8 +509,7 @@ namespace CppCLRWinFormsProject {
 			this->IqrBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->IqrBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->IqrBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->IqrBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->IqrBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->IqrBox->ForeColor = System::Drawing::Color::White;
 			this->IqrBox->Location = System::Drawing::Point(949, 461);
@@ -549,8 +524,7 @@ namespace CppCLRWinFormsProject {
 			this->LbBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->LbBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->LbBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->LbBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->LbBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->LbBox->ForeColor = System::Drawing::Color::White;
 			this->LbBox->Location = System::Drawing::Point(949, 495);
@@ -565,8 +539,7 @@ namespace CppCLRWinFormsProject {
 			this->UbBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->UbBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->UbBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->UbBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->UbBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->UbBox->ForeColor = System::Drawing::Color::White;
 			this->UbBox->Location = System::Drawing::Point(949, 528);
@@ -581,8 +554,7 @@ namespace CppCLRWinFormsProject {
 			this->SkewedBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->SkewedBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->SkewedBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->SkewedBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->SkewedBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->SkewedBox->ForeColor = System::Drawing::Color::White;
 			this->SkewedBox->Location = System::Drawing::Point(994, 572);
@@ -597,8 +569,7 @@ namespace CppCLRWinFormsProject {
 			this->Q3Box->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->Q3Box->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->Q3Box->Cursor = System::Windows::Forms::Cursors::Default;
-			this->Q3Box->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Q3Box->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Q3Box->ForeColor = System::Drawing::Color::White;
 			this->Q3Box->Location = System::Drawing::Point(949, 423);
@@ -613,8 +584,7 @@ namespace CppCLRWinFormsProject {
 			this->SortedBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->SortedBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->SortedBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->SortedBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F,
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->SortedBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->SortedBox->ForeColor = System::Drawing::Color::White;
 			this->SortedBox->Location = System::Drawing::Point(277, 304);
@@ -629,8 +599,7 @@ namespace CppCLRWinFormsProject {
 			this->ModeBox->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->ModeBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->ModeBox->Cursor = System::Windows::Forms::Cursors::Default;
-			this->ModeBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, 
-				System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->ModeBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ModeBox->ForeColor = System::Drawing::Color::White;
 			this->ModeBox->Location = System::Drawing::Point(277, 345);
@@ -640,6 +609,18 @@ namespace CppCLRWinFormsProject {
 			this->ModeBox->Size = System::Drawing::Size(529, 25);
 			this->ModeBox->TabIndex = 37;
 			// 
+			// Reset_textbox_Button
+			// 
+			this->Reset_textbox_Button->FlatAppearance->BorderColor = System::Drawing::Color::Blue;
+			this->Reset_textbox_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Reset_textbox_Button->Location = System::Drawing::Point(517, 105);
+			this->Reset_textbox_Button->Name = L"Reset_textbox_Button";
+			this->Reset_textbox_Button->Size = System::Drawing::Size(92, 21);
+			this->Reset_textbox_Button->TabIndex = 38;
+			this->Reset_textbox_Button->Text = L"Reset";
+			this->Reset_textbox_Button->UseVisualStyleBackColor = true;
+			this->Reset_textbox_Button->Click += gcnew System::EventHandler(this, &Form1::Reset_textbox_Button_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -647,6 +628,7 @@ namespace CppCLRWinFormsProject {
 			this->BackColor = System::Drawing::Color::Black;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(1224, 679);
+			this->Controls->Add(this->Reset_textbox_Button);
 			this->Controls->Add(this->ModeBox);
 			this->Controls->Add(this->SortedBox);
 			this->Controls->Add(this->Q3Box);
@@ -703,13 +685,12 @@ namespace CppCLRWinFormsProject {
 		
 #pragma endregion
 	private:
-		System::String^ str(float x) {
-			return System::Convert::ToString(x);
+
+		System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 		}
 
-		System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-		}
-		System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
+		System::String^ str(float x) {
+			return System::Convert::ToString(x);
 		}
 
 		System::Void Calc_Button_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -814,6 +795,13 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 
+		System::Void Reset_textbox_Button_Click(System::Object^ sender, System::EventArgs^ e) {
+			for each (Control ^ control in this->Controls) {
+				if (dynamic_cast<TextBox^>(control))
+					control->Text = "";
+			}
+		}
+
 		bool dragging;
 		Point offset;
 		System::Void Form1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
@@ -835,6 +823,7 @@ namespace CppCLRWinFormsProject {
 			offset.X = e->X;
 			offset.Y = e->Y;
 		}
+		
 		
 	};
 }

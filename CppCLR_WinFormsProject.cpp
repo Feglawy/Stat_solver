@@ -6,6 +6,8 @@
 using namespace std;
 using namespace System;
 using namespace System::Runtime::InteropServices;
+#pragma warning( disable : 4244 ) 
+
 
 // int main(array<System::String ^> ^args)
 // {
