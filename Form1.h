@@ -714,19 +714,14 @@ namespace CppCLRWinFormsProject {
 
 		System::Void Calc_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 
-
-			string textbox = msclr::interop::marshal_as<std::string>(textBox1->Text);
-			textbox.erase(remove(textbox.begin(), textbox.end(), '\r'), textbox.end());
-			textbox.erase(remove(textbox.begin(), textbox.end(), '\n'), textbox.end());
-			//textbox string to check if the textbox is empty or not by
-			//eraseing newlines of the textbox
-			//it can be better 
-
-			if (textBox1->Text == "" || textbox == "") {
+			if (textBox1->Text == "") {
 				MessageBox::Show(
 					"You must input in the text box ", "ERROR",
-					MessageBoxButtons::OK, MessageBoxIcon::Error);
+					MessageBoxButtons::OK, MessageBoxIcon::Warning
+					);
+				textBox1->Clear();
 			}
+
 			else {
 			
 				for each (Control ^ control in this->Controls) {
