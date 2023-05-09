@@ -11,9 +11,7 @@ using namespace std;
 using namespace System;
 using namespace System::Runtime::InteropServices;
 
-#pragma warning( push )
-#pragma warning( disable : 4244 ) 
-#pragma warning( pop )  
+#pragma warning( disable : 4244 ) //to disable double to float warning
 
 
 // int main(array<System::String ^> ^args)
