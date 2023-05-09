@@ -2,10 +2,15 @@
 #include <bits/stdc++.h>
 #include <msclr\marshal_cppstd.h>
 #include "stat.h"
+#include <Windows.h>
+#include <iomanip>
+#include <unordered_map>
+
 
 using namespace std;
 using namespace System;
 using namespace System::Runtime::InteropServices;
+
 #pragma warning( disable : 4244 ) //to disable double to float warning
 
 

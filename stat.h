@@ -9,14 +9,16 @@ using namespace std;
 
 class Stat {
 
-public:
+	public:
 	vector <dl> Data;
 
 	Stat(vector <dl> data) {
 		Data = data;
 		sort(Data.begin(), Data.end());
 	}
-	
+
+
+	// returns the median and it is the value that centers the data
 	dl get_median()       {
 		dl median;
 		int size = Data.size();
@@ -29,10 +31,13 @@ public:
 
 		return median;
 	}
+
+	// returns the vector of sorted data
 	vector <dl> get_data_sorted() {
 		return Data;
 	}
 
+	// the sum of all data 
 	dl get_sum() {
 		dl sum = 0;
 		for (auto q : Data) {
@@ -41,16 +46,19 @@ public:
 		return sum;
 	}
 
+	// the biggest value minus the least one 
 	dl get_range() {
 		dl range = Data.back() - Data.front();
 		return range;
 	}
 
+	// the average of data
 	dl get_mean() {
 		dl mean = get_sum() / Data.size();
 		return mean;
 	}
 
+	// returns the vector of the repeated values in the data
 	vector <dl> get_mode() {
 		map <dl, dl> map_mode;
 		vector <dl> mode;
@@ -67,17 +75,28 @@ public:
 		return mode;
 	}
 
-	dl get_standerd_deviation() {
+	// returns the standerd deviation 
+	// st_d is the square root of variance
+	// variance if the sum of all values - mean -> ((xi - mean)^2)/n 
+	dl get_standerd_deviation(bool pop = false) {
 		dl variance = 0;
 		dl mean = get_mean();
 		for (auto q : Data) {
 			variance += pow((q - mean), 2);
 		}
-		if (Data.size() == 1) variance /= Data.size();
-		else variance /= Data.size() - 1;
+		if (!pop && Data.size() > 1) {
+			variance /= Data.size() - 1;
+		}
+		else if (pop && Data.size() > 1) {
+			variance /= Data.size();
+		}
+		else {
+			return 0;
+		}
 		return sqrt(variance);
 	}
 
+	// q1 is the median of the first half of the data
 	dl get_Q1() {
 		vector < dl > lower_half;
 		int size = Data.size();
@@ -96,11 +115,13 @@ public:
 		return Stat(lower_half).get_median();
 	}
 
+	// q2 is the median of the data
 	dl get_Q2() {
 		if (Data.size() == 1) { return 0; }
 		return get_median();
 	}
 
+	// q3 is the median of the second half of the data
 	dl get_Q3() {
 		vector < dl > upper_half;
 		int size = Data.size();
@@ -119,17 +140,74 @@ public:
 		return Stat(upper_half).get_median();
 	}
 
+	// the difference between the upper
+	// quartile(Q1) and the lower quartile(Q3).
 	dl get_iqr() {
 		return get_Q3() - get_Q1();
 	}
 
+	// the lower bound of the data 
+	// any value of the data below it is an outlier
 	dl get_lb() {
 		return get_Q1() - 1.5 * get_iqr();
 	}
 
+	//the upper bound of the data
+	// any value if the data above it is an outlier
 	dl get_ub() {
 		return get_Q3() + 1.5 * get_iqr();
 	}
+
+
+	//#of classes = 2 ^ k > size of the sample
+	int get_num_classes() {
+		return log2(Data.size()) + 1 ;
+	}
+
+	//class width is the round up to the range over #of classes
+	int get_class_width() {
+		return ceil(get_range() / (float)get_num_classes());
+	}
+
+	//returns a map to get the freq  string -> is the class range , int -> is the freq;
+	map <float, int> get_map_of_freq() {
+		map <float, int> freq;
+
+		for (auto q : Data) {
+			freq[q]++;
+		}
+		return freq;
+	}
+
+	
+
+	vector <pair <string, int>> get_map_of_class_freq() {
+		map <float, int> frequancy = get_map_of_freq();
+		vector <pair <string, int>> ans;
+		int width = get_class_width();
+
+		float begin = frequancy.begin()->first;
+		float end = frequancy.begin()->first + width;
+
+		
+		string str = change_to_string(begin, end);
+		ans.push_back(make_pair(str, 0));
+
+		for (auto q : frequancy) {
+			while (q.first >= end) {
+				begin += width;
+				end += width;
+
+				string str = change_to_string(begin, end);
+				ans.push_back(make_pair(str , 0));
+			}
+		
+			ans.back().second += q.second;
+		}
+
+		return ans;
+	}
+
 
 	void check_skewed() {
 		if (get_mean() > get_Q2()) 
@@ -143,6 +221,7 @@ public:
 
 		return;
 	}
+
 
 	void show_mode() {
 		map <dl, dl> mode;
@@ -195,6 +274,15 @@ public:
 		check_skewed();
 	}
 
-	
+	private:
+		string change_to_string(float x, float y) {
+			stringstream ss, ss2;
+			ss << fixed << setprecision(2) << x;
+			ss2 << fixed << setprecision(2) << y;
+			string strBegin = ss.str();
+			string strEnd = ss2.str();
 
+			string str = strBegin + " -> " + strEnd;
+			return str;
+		}
 };
