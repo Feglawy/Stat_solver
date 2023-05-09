@@ -75,6 +75,16 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::TextBox^ SortedBox;
 	private: System::Windows::Forms::TextBox^ ModeBox;
 	private: System::Windows::Forms::Button^ Reset_textbox_Button;
+	private: System::Windows::Forms::Button^ show_freqtable_button;
+	private: System::Windows::Forms::DataGridView^ FreqTable;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
+	private: System::Windows::Forms::Timer^ timer1;
+	private: System::Windows::Forms::Timer^ timer2;
+	private: System::ComponentModel::IContainer^ components;
+
+
+
 
 
 
@@ -84,7 +94,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -93,6 +103,13 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->Calc_Button = (gcnew System::Windows::Forms::Button());
@@ -132,6 +149,13 @@ namespace CppCLRWinFormsProject {
 			this->SortedBox = (gcnew System::Windows::Forms::TextBox());
 			this->ModeBox = (gcnew System::Windows::Forms::TextBox());
 			this->Reset_textbox_Button = (gcnew System::Windows::Forms::Button());
+			this->show_freqtable_button = (gcnew System::Windows::Forms::Button());
+			this->FreqTable = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->timer2 = (gcnew System::Windows::Forms::Timer(this->components));
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FreqTable))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -144,7 +168,6 @@ namespace CppCLRWinFormsProject {
 			this->label1->Size = System::Drawing::Size(57, 25);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Data";
-
 			// 
 			// textBox1
 			// 
@@ -278,7 +301,7 @@ namespace CppCLRWinFormsProject {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(839, 259);
+			this->label3->Location = System::Drawing::Point(831, 264);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(133, 25);
 			this->label3->TabIndex = 12;
@@ -339,9 +362,9 @@ namespace CppCLRWinFormsProject {
 			// panel3
 			// 
 			this->panel3->BackColor = System::Drawing::Color::White;
-			this->panel3->Location = System::Drawing::Point(844, 287);
+			this->panel3->Location = System::Drawing::Point(836, 292);
 			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(214, 2);
+			this->panel3->Size = System::Drawing::Size(160, 2);
 			this->panel3->TabIndex = 18;
 			// 
 			// LB
@@ -613,7 +636,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->Reset_textbox_Button->FlatAppearance->BorderColor = System::Drawing::Color::Blue;
 			this->Reset_textbox_Button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->Reset_textbox_Button->Location = System::Drawing::Point(517, 105);
+			this->Reset_textbox_Button->Location = System::Drawing::Point(517, 78);
 			this->Reset_textbox_Button->Name = L"Reset_textbox_Button";
 			this->Reset_textbox_Button->Size = System::Drawing::Size(92, 21);
 			this->Reset_textbox_Button->TabIndex = 38;
@@ -621,13 +644,105 @@ namespace CppCLRWinFormsProject {
 			this->Reset_textbox_Button->UseVisualStyleBackColor = true;
 			this->Reset_textbox_Button->Click += gcnew System::EventHandler(this, &Form1::Reset_textbox_Button_Click);
 			// 
+			// show_freqtable_button
+			// 
+			this->show_freqtable_button->FlatAppearance->BorderColor = System::Drawing::Color::Blue;
+			this->show_freqtable_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->show_freqtable_button->Location = System::Drawing::Point(1006, 259);
+			this->show_freqtable_button->Name = L"show_freqtable_button";
+			this->show_freqtable_button->Size = System::Drawing::Size(143, 30);
+			this->show_freqtable_button->TabIndex = 39;
+			this->show_freqtable_button->Text = L"Show Frequancy Table ->";
+			this->show_freqtable_button->UseVisualStyleBackColor = true;
+			this->show_freqtable_button->Click += gcnew System::EventHandler(this, &Form1::show_freqtable_button_Click);
+			// 
+			// FreqTable
+			// 
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::Black;
+			dataGridViewCellStyle1->ForeColor = System::Drawing::Color::White;
+			this->FreqTable->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this->FreqTable->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->FreqTable->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::DisplayedCells;
+			this->FreqTable->BackgroundColor = System::Drawing::Color::Black;
+			this->FreqTable->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->FreqTable->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::None;
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle2->ForeColor = System::Drawing::Color::Black;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->FreqTable->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			this->FreqTable->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->FreqTable->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) { this->Column1, this->Column2 });
+			this->FreqTable->Cursor = System::Windows::Forms::Cursors::IBeam;
+			this->FreqTable->GridColor = System::Drawing::Color::White;
+			this->FreqTable->ImeMode = System::Windows::Forms::ImeMode::Off;
+			this->FreqTable->Location = System::Drawing::Point(1178, 192);
+			this->FreqTable->Name = L"FreqTable";
+			this->FreqTable->ReadOnly = true;
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle5->BackColor = System::Drawing::Color::Black;
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->FreqTable->RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			this->FreqTable->RowHeadersVisible = false;
+			dataGridViewCellStyle6->BackColor = System::Drawing::Color::Black;
+			this->FreqTable->RowsDefaultCellStyle = dataGridViewCellStyle6;
+			this->FreqTable->RowTemplate->DefaultCellStyle->BackColor = System::Drawing::Color::Black;
+			this->FreqTable->Size = System::Drawing::Size(305, 415);
+			this->FreqTable->TabIndex = 40;
+			// 
+			// Column1
+			// 
+			this->Column1->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::DisplayedCells;
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::Black;
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Column1->DefaultCellStyle = dataGridViewCellStyle3;
+			this->Column1->FillWeight = 180.9137F;
+			this->Column1->HeaderText = L"Data";
+			this->Column1->MinimumWidth = 100;
+			this->Column1->Name = L"Column1";
+			this->Column1->ReadOnly = true;
+			// 
+			// Column2
+			// 
+			this->Column2->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
+			dataGridViewCellStyle4->BackColor = System::Drawing::Color::Black;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->Column2->DefaultCellStyle = dataGridViewCellStyle4;
+			this->Column2->FillWeight = 4.086288F;
+			this->Column2->HeaderText = L"Freq";
+			this->Column2->Name = L"Column2";
+			this->Column2->ReadOnly = true;
+			// 
+			// timer1
+			// 
+			this->timer1->Interval = 1;
+			this->timer1->Tick += gcnew System::EventHandler(this, &Form1::timer1_Tick);
+			// 
+			// timer2
+			// 
+			this->timer2->Interval = 1;
+			this->timer2->Tick += gcnew System::EventHandler(this, &Form1::timer2_Tick);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1224, 679);
+			this->ClientSize = System::Drawing::Size(1166, 679);
+			this->Controls->Add(this->FreqTable);
+			this->Controls->Add(this->show_freqtable_button);
 			this->Controls->Add(this->Reset_textbox_Button);
 			this->Controls->Add(this->ModeBox);
 			this->Controls->Add(this->SortedBox);
@@ -673,11 +788,12 @@ namespace CppCLRWinFormsProject {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Name = L"Form1";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Stat Solver V1.1";
+			this->Text = L"            ";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::Form1_MouseDown);
 			this->MouseMove += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::Form1_MouseMove);
 			this->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Form1::Form1_MouseUp);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->FreqTable))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -691,6 +807,17 @@ namespace CppCLRWinFormsProject {
 
 		System::String^ str(float x) {
 			return System::Convert::ToString(x);
+		}
+
+		vector<dl> get_data() {
+			vector<double long> items;
+			string item = msclr::interop::marshal_as<std::string>(textBox1->Text);
+			stringstream ss(item);
+
+			while (ss >> item) {
+				items.push_back(stod(item));
+			}
+			return items;
 		}
 
 		System::Void Calc_Button_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -711,15 +838,7 @@ namespace CppCLRWinFormsProject {
 					}
 				}
 
-				vector<double long> items;
-				string item = msclr::interop::marshal_as<std::string>(textBox1->Text);
-				stringstream ss(item);
-
-				while (ss >> item) {
-					items.push_back(stod(item));
-				}
-
-
+				vector < dl > items = get_data();
 				Stat S = Stat(items);
 
 				vector <double long> sorted_data = S.get_data_sorted();
@@ -800,8 +919,71 @@ namespace CppCLRWinFormsProject {
 				if (dynamic_cast<TextBox^>(control))
 					control->Text = "";
 			}
+			int rowCount = FreqTable->RowCount;
+			rowCount--;
+			while (rowCount--) {
+				FreqTable->Rows->RemoveAt(0);
+			}
 		}
 
+		System::Void show_freqtable_button_Click(System::Object^ sender, System::EventArgs^ e) {
+			if (textBox1->Text == "") {
+				MessageBox::Show(
+					"You must input in the text box ", "ERROR",
+					MessageBoxButtons::OK, MessageBoxIcon::Warning
+				);
+				textBox1->Clear();
+			}
+			else {
+				vector < dl > items = get_data();
+				Stat S = Stat(items);
+				
+				int rowCount = FreqTable->RowCount;
+				rowCount--;
+				while (rowCount--) {
+					FreqTable->Rows->RemoveAt(0);
+				}
+
+				auto class_freq = S.get_map_of_class_freq();
+				for (auto q : class_freq) {
+					System::String^ interval = gcnew System::String(q.first.c_str());
+					System::String^ freq = str(q.second);
+					FreqTable->Rows->Add(interval, freq);
+				}
+			}
+			if (show_freqtable_button->Text == "Show Frequancy Table ->") {
+				timer1->Start();
+				show_freqtable_button->Text =  "Hide Frequancy Table <-";
+			}
+			else {
+				show_freqtable_button->Text = "Show Frequancy Table ->";
+				timer2->Start();
+				return;
+			}
+		}
+		
+		
+		int count = 0;
+		System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
+			if (count < 10) {
+				Form::Width += 34;
+				count++;
+			}
+			else {
+				timer1->Stop();
+			}
+		}
+		System::Void timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
+			if (count > 0) {
+				Form::Width -= 34;
+				count--;
+			}
+			else {
+				timer2->Stop();
+			}
+		}
+
+		//to make the form movable
 		bool dragging;
 		Point offset;
 		System::Void Form1_MouseMove(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e) {
@@ -823,7 +1005,6 @@ namespace CppCLRWinFormsProject {
 			offset.X = e->X;
 			offset.Y = e->Y;
 		}
-		
-		
+
 	};
 }

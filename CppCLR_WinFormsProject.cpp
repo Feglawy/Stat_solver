@@ -2,11 +2,18 @@
 #include <bits/stdc++.h>
 #include <msclr\marshal_cppstd.h>
 #include "stat.h"
+#include <Windows.h>
+#include <iomanip>
+#include <unordered_map>
+
 
 using namespace std;
 using namespace System;
 using namespace System::Runtime::InteropServices;
+
+#pragma warning( push )
 #pragma warning( disable : 4244 ) 
+#pragma warning( pop )  
 
 
 // int main(array<System::String ^> ^args)
