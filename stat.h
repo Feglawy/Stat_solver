@@ -180,7 +180,6 @@ class Stat {
 	}
 
 	
-
 	vector <pair <string, int>> get_map_of_class_freq() {
 		map <float, int> frequancy = get_map_of_freq();
 		vector <pair <string, int>> ans;
@@ -192,6 +191,7 @@ class Stat {
 		
 		string str = change_to_string(begin, end);
 		ans.push_back(make_pair(str, 0));
+		if (width == 0)	return ans;
 
 		for (auto q : frequancy) {
 			while (q.first >= end) {
