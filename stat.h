@@ -285,4 +285,5 @@ class Stat {
 			string str = strBegin + " -> " + strEnd;
 			return str;
 		}
+
 };

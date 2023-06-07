@@ -237,9 +237,9 @@ namespace CppCLRWinFormsProject {
 				static_cast<System::Byte>(0)));
 			this->Median->Location = System::Drawing::Point(32, 528);
 			this->Median->Name = L"Median";
-			this->Median->Size = System::Drawing::Size(119, 25);
+			this->Median->Size = System::Drawing::Size(107, 25);
 			this->Median->TabIndex = 6;
-			this->Median->Text = L"Meadian = ";
+			this->Median->Text = L"Median = ";
 			// 
 			// Sorted
 			// 
@@ -924,6 +924,11 @@ namespace CppCLRWinFormsProject {
 			while (rowCount--) {
 				FreqTable->Rows->RemoveAt(0);
 			}
+
+			if (show_freqtable_button->Text == "Hide Frequancy Table <-") {
+				timer2->Start();
+			}
+
 		}
 
 		System::Void show_freqtable_button_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -954,32 +959,38 @@ namespace CppCLRWinFormsProject {
 			if (show_freqtable_button->Text == "Show Frequancy Table ->") {
 				timer1->Start();
 				show_freqtable_button->Text =  "Hide Frequancy Table <-";
+				return;
 			}
 			else {
-				show_freqtable_button->Text = "Show Frequancy Table ->";
 				timer2->Start();
+				show_freqtable_button->Text = "Show Frequancy Table ->";
 				return;
 			}
 		}
 		
 		
 		int count = 0;
+
 		System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 			if (count < 10) {
 				Form::Width += 34;
 				count++;
+				show_freqtable_button->Enabled = false;
 			}
 			else {
 				timer1->Stop();
+				show_freqtable_button->Enabled = true;
 			}
 		}
 		System::Void timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
-			if (count > 0) {
+			if (count > 0 ) {
 				Form::Width -= 34;
 				count--;
+				show_freqtable_button->Enabled = false;
 			}
 			else {
 				timer2->Stop();
+				show_freqtable_button->Enabled = true;
 			}
 		}
 
