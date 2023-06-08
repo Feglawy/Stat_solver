@@ -6,7 +6,6 @@
 #include <iomanip>
 #include <unordered_map>
 
-
 using namespace std;
 using namespace System;
 using namespace System::Runtime::InteropServices;

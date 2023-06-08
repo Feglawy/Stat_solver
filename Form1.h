@@ -989,8 +989,7 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 
-		}
-
+	
 		System::Void show_freqtable_button_Click(System::Object^ sender, System::EventArgs^ e) {
 			if (textBox1->Text == "") {
 				MessageBox::Show(
