@@ -97,6 +97,7 @@ class Stat {
 	}
 
 	// q1 is the median of the first half of the data
+	//maybe there is a better way 
 	dl get_Q1() {
 		vector < dl > lower_half;
 		int size = Data.size();
@@ -122,12 +123,13 @@ class Stat {
 	}
 
 	// q3 is the median of the second half of the data
+	//maybe there is a better way 
 	dl get_Q3() {
 		vector < dl > upper_half;
 		int size = Data.size();
 		if (size == 1) { return 0; }
 		if (size % 2 == 0) {
-			for (int i = (size - 1) / 2; i < size; i++) {
+			for (int i = (size) / 2; i < size; i++) {
 				upper_half.push_back(Data[i]);
 			}
 		}
