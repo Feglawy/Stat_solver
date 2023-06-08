@@ -883,6 +883,19 @@ namespace CppCLRWinFormsProject {
 			return items;
 		}
 
+
+		bool is_digit() {
+			string text = msclr::interop::marshal_as<std::string>(textBox1->Text);
+
+			text.erase(remove(text.begin(), text.end(), ' '), text.end());
+			text.erase(remove(text.begin(), text.end(), '\r'), text.end());
+			text.erase(remove(text.begin(), text.end(), '\n'), text.end());
+			text.erase(remove(text.begin(), text.end(), '.'), text.end());
+
+			return all_of(text.begin(), text.end(), ::isdigit);
+
+		}
+
 		System::Void Calc_Button_Click(System::Object^ sender, System::EventArgs^ e) {
 
 			if (textBox1->Text == "") {
@@ -891,6 +904,13 @@ namespace CppCLRWinFormsProject {
 					MessageBoxButtons::OK, MessageBoxIcon::Warning
 					);
 				textBox1->Clear();
+			}
+
+			else if (!is_digit()) {
+				MessageBox::Show(
+					"Check your input it should be all digits.", "ERROR",
+					MessageBoxButtons::OK, MessageBoxIcon::Warning
+				);
 			}
 
 			else {
@@ -947,15 +967,15 @@ namespace CppCLRWinFormsProject {
 
 				double ub = S.get_ub();
 				UbBox->Text = str(ub);
-				/*Skewed->Text = "Is skewed: ";*/
+
 				if (mean > median) {
-					SkewedBox->Text += "Postive skewed";
+					SkewedBox->Text = "Postive skewed";
 				}
 				else if (mean < median) {
-					SkewedBox->Text += "Negative skewed";
+					SkewedBox->Text = "Negative skewed";
 				}
 				else {
-					SkewedBox->Text += "Symetric";
+					SkewedBox->Text = "Symetric";
 				}
 			}
 
@@ -1005,6 +1025,13 @@ namespace CppCLRWinFormsProject {
 				return;
 				textBox1->Clear();
 			}
+
+			else if (!is_digit()) {
+				MessageBox::Show(
+					"Check your input it should be all digits.", "ERROR",
+					MessageBoxButtons::OK, MessageBoxIcon::Warning
+				);
+			}
 			else {
 				vector < dl > items = get_data();
 				Stat S = Stat(items);
@@ -1024,17 +1051,18 @@ namespace CppCLRWinFormsProject {
 					System::String^ freq = str(q.second);
 					FreqTable->Rows->Add(interval, freq);
 				}
+				if (show_freqtable_button->Text == "Show Frequancy Table ->") {
+					timer1->Start();
+					show_freqtable_button->Text = "Hide Frequancy Table <-";
+					return;
+				}
+				else {
+					timer2->Start();
+					show_freqtable_button->Text = "Show Frequancy Table ->";
+					return;
+				}
 			}
-			if (show_freqtable_button->Text == "Show Frequancy Table ->") {
-				timer1->Start();
-				show_freqtable_button->Text =  "Hide Frequancy Table <-";
-				return;
-			}
-			else {
-				timer2->Start();
-				show_freqtable_button->Text = "Show Frequancy Table ->";
-				return;
-			}
+			
 		}
 		
 		
