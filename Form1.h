@@ -987,6 +987,12 @@ namespace CppCLRWinFormsProject {
 			while (rowCount--) {
 				FreqTable->Rows->RemoveAt(0);
 			}
+
+			if (show_freqtable_button->Text == "Hide Frequancy Table <-") {
+				timer2->Start();
+				show_freqtable_button->Text = "Show Frequancy Table ->";
+			}
+
 		}
 
 	
