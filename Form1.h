@@ -88,6 +88,7 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
+
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -235,7 +236,7 @@ namespace CppCLRWinFormsProject {
 			this->Mean->AutoSize = true;
 			this->Mean->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Mean->Location = System::Drawing::Point(32, 486);
+			this->Mean->Location = System::Drawing::Point(74, 503);
 			this->Mean->Name = L"Mean";
 			this->Mean->Size = System::Drawing::Size(120, 25);
 			this->Mean->TabIndex = 5;
@@ -246,11 +247,11 @@ namespace CppCLRWinFormsProject {
 			this->Median->AutoSize = true;
 			this->Median->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Median->Location = System::Drawing::Point(32, 528);
+			this->Median->Location = System::Drawing::Point(74, 545);
 			this->Median->Name = L"Median";
-			this->Median->Size = System::Drawing::Size(107, 25);
+			this->Median->Size = System::Drawing::Size(125, 25);
 			this->Median->TabIndex = 6;
-			this->Median->Text = L"Median = ";
+			this->Median->Text = L"Median    = ";
 			// 
 			// Sorted
 			// 
@@ -268,7 +269,7 @@ namespace CppCLRWinFormsProject {
 			this->Sum->AutoSize = true;
 			this->Sum->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Sum->Location = System::Drawing::Point(32, 405);
+			this->Sum->Location = System::Drawing::Point(74, 423);
 			this->Sum->Name = L"Sum";
 			this->Sum->Size = System::Drawing::Size(115, 25);
 			this->Sum->TabIndex = 8;
@@ -290,7 +291,7 @@ namespace CppCLRWinFormsProject {
 			this->Range->AutoSize = true;
 			this->Range->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->Range->Location = System::Drawing::Point(32, 444);
+			this->Range->Location = System::Drawing::Point(74, 462);
 			this->Range->Name = L"Range";
 			this->Range->Size = System::Drawing::Size(117, 25);
 			this->Range->TabIndex = 10;
@@ -301,7 +302,7 @@ namespace CppCLRWinFormsProject {
 			this->Standerd_deviation->AutoSize = true;
 			this->Standerd_deviation->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->Standerd_deviation->Location = System::Drawing::Point(32, 572);
+			this->Standerd_deviation->Location = System::Drawing::Point(74, 590);
 			this->Standerd_deviation->Name = L"Standerd_deviation";
 			this->Standerd_deviation->Size = System::Drawing::Size(216, 25);
 			this->Standerd_deviation->TabIndex = 11;
@@ -441,7 +442,7 @@ namespace CppCLRWinFormsProject {
 			this->SumBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->SumBox->ForeColor = System::Drawing::Color::White;
-			this->SumBox->Location = System::Drawing::Point(155, 405);
+			this->SumBox->Location = System::Drawing::Point(197, 423);
 			this->SumBox->Multiline = true;
 			this->SumBox->Name = L"SumBox";
 			this->SumBox->ReadOnly = true;
@@ -456,7 +457,7 @@ namespace CppCLRWinFormsProject {
 			this->RangeBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->RangeBox->ForeColor = System::Drawing::Color::White;
-			this->RangeBox->Location = System::Drawing::Point(155, 444);
+			this->RangeBox->Location = System::Drawing::Point(197, 462);
 			this->RangeBox->Multiline = true;
 			this->RangeBox->Name = L"RangeBox";
 			this->RangeBox->ReadOnly = true;
@@ -471,7 +472,7 @@ namespace CppCLRWinFormsProject {
 			this->MeanBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MeanBox->ForeColor = System::Drawing::Color::White;
-			this->MeanBox->Location = System::Drawing::Point(155, 486);
+			this->MeanBox->Location = System::Drawing::Point(197, 504);
 			this->MeanBox->Multiline = true;
 			this->MeanBox->Name = L"MeanBox";
 			this->MeanBox->ReadOnly = true;
@@ -486,7 +487,7 @@ namespace CppCLRWinFormsProject {
 			this->MeadianBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->MeadianBox->ForeColor = System::Drawing::Color::White;
-			this->MeadianBox->Location = System::Drawing::Point(155, 528);
+			this->MeadianBox->Location = System::Drawing::Point(197, 546);
 			this->MeadianBox->Multiline = true;
 			this->MeadianBox->Name = L"MeadianBox";
 			this->MeadianBox->ReadOnly = true;
@@ -501,7 +502,7 @@ namespace CppCLRWinFormsProject {
 			this->STBox->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->STBox->ForeColor = System::Drawing::Color::White;
-			this->STBox->Location = System::Drawing::Point(254, 572);
+			this->STBox->Location = System::Drawing::Point(296, 590);
 			this->STBox->Multiline = true;
 			this->STBox->Name = L"STBox";
 			this->STBox->ReadOnly = true;
@@ -625,7 +626,8 @@ namespace CppCLRWinFormsProject {
 			this->SortedBox->Multiline = true;
 			this->SortedBox->Name = L"SortedBox";
 			this->SortedBox->ReadOnly = true;
-			this->SortedBox->Size = System::Drawing::Size(529, 25);
+			this->SortedBox->ScrollBars = System::Windows::Forms::ScrollBars::Horizontal;
+			this->SortedBox->Size = System::Drawing::Size(529, 35);
 			this->SortedBox->TabIndex = 36;
 			// 
 			// ModeBox
@@ -659,7 +661,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->show_freqtable_button->FlatAppearance->BorderColor = System::Drawing::Color::Blue;
 			this->show_freqtable_button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->show_freqtable_button->Location = System::Drawing::Point(1006, 259);
+			this->show_freqtable_button->Location = System::Drawing::Point(1006, 264);
 			this->show_freqtable_button->Name = L"show_freqtable_button";
 			this->show_freqtable_button->Size = System::Drawing::Size(143, 30);
 			this->show_freqtable_button->TabIndex = 39;
@@ -707,7 +709,7 @@ namespace CppCLRWinFormsProject {
 			dataGridViewCellStyle12->BackColor = System::Drawing::Color::Black;
 			this->FreqTable->RowsDefaultCellStyle = dataGridViewCellStyle12;
 			this->FreqTable->RowTemplate->DefaultCellStyle->BackColor = System::Drawing::Color::Black;
-			this->FreqTable->Size = System::Drawing::Size(305, 363);
+			this->FreqTable->Size = System::Drawing::Size(263, 234);
 			this->FreqTable->TabIndex = 40;
 			// 
 			// Column1
@@ -787,7 +789,7 @@ namespace CppCLRWinFormsProject {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(1167, 166);
+			this->label5->Location = System::Drawing::Point(1167, 161);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(131, 25);
 			this->label5->TabIndex = 44;
@@ -799,7 +801,7 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Black;
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(1172, 679);
+			this->ClientSize = System::Drawing::Size(1167, 679);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->Num_of_classes_Box);
@@ -968,10 +970,11 @@ namespace CppCLRWinFormsProject {
 				double ub = S.get_ub();
 				UbBox->Text = str(ub);
 
-				if (mean > median) {
+				dl skewness = S.get_skewness();
+				if (skewness > 0) {
 					SkewedBox->Text = "Postive skewed";
 				}
-				else if (mean < median) {
+				else if (skewness < 0) {
 					SkewedBox->Text = "Negative skewed";
 				}
 				else {
@@ -1036,7 +1039,7 @@ namespace CppCLRWinFormsProject {
 				vector < dl > items = get_data();
 				Stat S = Stat(items);
 
-				Num_of_classes_Box->Text = str(S.get_num_classes());
+				Num_of_classes_Box->Text = str(S.get_num_classes() + 1);
 				Class_Width_Box->Text = str(S.get_class_width());
 				
 				int rowCount = FreqTable->RowCount;
@@ -1085,12 +1088,12 @@ namespace CppCLRWinFormsProject {
 				count--;
 				show_freqtable_button->Enabled = false;
 			}
-			else {
+			else {	
 				timer2->Stop();
 				show_freqtable_button->Enabled = true;
 			}
 		}
-
+		
 		//to make the form movable
 		bool dragging;
 		Point offset;
@@ -1114,5 +1117,5 @@ namespace CppCLRWinFormsProject {
 			offset.Y = e->Y;
 		}
 
-	};
+};
 }

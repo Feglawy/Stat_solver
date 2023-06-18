@@ -17,6 +17,10 @@ class Stat {
 		sort(Data.begin(), Data.end());
 	}
 
+	//get the size of the data
+	int get_size() {
+		return Data.size();
+	}
 
 	// returns the median and it is the value that centers the data
 	dl get_median()       {
@@ -160,10 +164,36 @@ class Stat {
 		return get_Q3() + 1.5 * get_iqr();
 	}
 
+	// to get the max value in the data given
+	dl get_max() {
+		return Data.back();
+	}
+	
+	// to get the min value in the data given
+	dl get_min() {
+		return Data.front();
+	}
+
+	//returns the skewness of the data 
+	// the rule is sum((xi - mean)^3) / (N-1)*s^3 
+	float get_skewness() {
+		dl sumCubied = 0;
+		dl mean = get_mean();
+		dl S = get_standerd_deviation();
+
+		int size = get_size();
+
+		for (auto q : Data) {
+			sumCubied += pow((q - mean), 3);
+		}
+
+		float skewness = sumCubied / ((size - 1) * pow(S, 3));
+		return skewness;
+	}
 
 	//#of classes = 2 ^ k > size of the sample
 	int get_num_classes() {
-		return log2(Data.size()) + 1 ;
+		return log2(Data.size()) + 1;
 	}
 
 	//class width is the round up to the range over #of classes
@@ -180,7 +210,6 @@ class Stat {
 		}
 		return freq;
 	}
-
 	
 	vector <pair <string, int>> get_map_of_class_freq() {
 		map <float, int> frequancy = get_map_of_freq();
@@ -212,10 +241,10 @@ class Stat {
 
 
 	void check_skewed() {
-		if (get_mean() > get_Q2()) 
+		if (get_skewness() > 0)
 			cout << "Postive skewed" << endl;
 
-		else if (get_mean() < get_Q2())
+		else if (get_skewness() < 0)
 			cout << "Negative skewed" << endl;
 
 		else 
@@ -277,6 +306,7 @@ class Stat {
 	}
 
 	private:
+		//to change float to string with format x : y
 		string change_to_string(float x, float y) {
 			stringstream ss, ss2;
 			ss << fixed << setprecision(2) << x;
@@ -287,5 +317,4 @@ class Stat {
 			string str = strBegin + " -> " + strEnd;
 			return str;
 		}
-
 };
