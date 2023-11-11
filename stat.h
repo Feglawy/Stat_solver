@@ -71,8 +71,14 @@ class Stat {
 			map_mode[l]++;
 		}
 
+		int biggest_freq = 0;
+
 		for (auto q : map_mode) {
-			if (q.second > 1) {
+			biggest_freq = max(biggest_freq, q.second);
+		}
+
+		for (auto q : map_mode) {
+			if (q.second == biggest_freq) {
 				mode.push_back(q.first);
 			}
 		}
