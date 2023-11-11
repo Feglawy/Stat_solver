@@ -47,7 +47,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ Sum;
 	private: System::Windows::Forms::Label^ Mode;
 	private: System::Windows::Forms::Label^ Range;
-	private: System::Windows::Forms::Label^ Standerd_deviation;
+	private: System::Windows::Forms::Label^ standard_deviation;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Label^ Q1;
@@ -129,7 +129,7 @@ namespace CppCLRWinFormsProject {
 			this->Sum = (gcnew System::Windows::Forms::Label());
 			this->Mode = (gcnew System::Windows::Forms::Label());
 			this->Range = (gcnew System::Windows::Forms::Label());
-			this->Standerd_deviation = (gcnew System::Windows::Forms::Label());
+			this->standard_deviation = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->Q1 = (gcnew System::Windows::Forms::Label());
@@ -297,16 +297,16 @@ namespace CppCLRWinFormsProject {
 			this->Range->TabIndex = 10;
 			this->Range->Text = L"Range    = ";
 			// 
-			// Standerd_deviation
+			// standard_deviation
 			// 
-			this->Standerd_deviation->AutoSize = true;
-			this->Standerd_deviation->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
+			this->standard_deviation->AutoSize = true;
+			this->standard_deviation->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->Standerd_deviation->Location = System::Drawing::Point(74, 590);
-			this->Standerd_deviation->Name = L"Standerd_deviation";
-			this->Standerd_deviation->Size = System::Drawing::Size(216, 25);
-			this->Standerd_deviation->TabIndex = 11;
-			this->Standerd_deviation->Text = L"Standerd deviation = ";
+			this->standard_deviation->Location = System::Drawing::Point(74, 590);
+			this->standard_deviation->Name = L"standard_deviation";
+			this->standard_deviation->Size = System::Drawing::Size(216, 25);
+			this->standard_deviation->TabIndex = 11;
+			this->standard_deviation->Text = L"Standard deviation = ";
 			// 
 			// label3
 			// 
@@ -836,7 +836,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->Q1);
 			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->Standerd_deviation);
+			this->Controls->Add(this->standard_deviation);
 			this->Controls->Add(this->Range);
 			this->Controls->Add(this->Mode);
 			this->Controls->Add(this->Sum);
@@ -949,8 +949,8 @@ namespace CppCLRWinFormsProject {
 				double median = S.get_median();
 				MeadianBox->Text = str(median);
 
-				double standerd_deviation = S.get_standerd_deviation();
-				STBox->Text = str(standerd_deviation);
+				double standard_deviation = S.get_standerd_deviation();
+				STBox->Text = str(standard_deviation);
 
 				double q1 = S.get_Q1();
 				Q1Box->Text = str(q1);
