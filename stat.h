@@ -199,7 +199,7 @@ class Stat {
 
 	//#of classes = 2 ^ k > size of the sample
 	int get_num_classes() {
-		return log2(Data.size()) + 1;
+		return ceil(log2(Data.size()));
 	}
 
 	//class width is the round up to the range over #of classes
